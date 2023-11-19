@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@types/node": "^20.9.2",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "start": "nodemon event-loop.ts",
+    "tsc": "tsc"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.2",
+    "ts-node": "^10.9.1"
+  }
+}
