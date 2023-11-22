@@ -1,26 +1,24 @@
 import express from 'express';
-import {
-  createTour,
-  deleteTour,
-  getAllTours,
-  getTourById,
-  updateTour,
-} from './controller/tours.controller';
+
+import morgan from 'morgan';
+import tourRouter from './routes/tours.routes';
+import userRouter from './routes/users.routes';
 
 const app = express();
-app.use(express.json());
 
-const port = 3000;
+/* MIDDLEWARE **/
+app.use(express.json());
+app.use(morgan('dev'));
+
+app.use((req, res, next) => {
+  console.log('Hello from the middleware 👋');
+  next();
+});
+
+/* ROUTES **/
 const baseUrl = '/api/v1';
 
-app.route(`${baseUrl}/tours`).get(getAllTours).post(createTour);
+app.use(`${baseUrl}/tours`, tourRouter);
+app.use(`${baseUrl}/users`, userRouter);
 
-app
-  .route(`${baseUrl}/tours/:id`)
-  .get(getTourById)
-  .patch(updateTour)
-  .delete(deleteTour);
-
-app.listen(port, () => {
-  console.log(`App running on port ${port}...`);
-});
+export default app;
