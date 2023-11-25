@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router } from "express";
 import {
   getAllTours,
   createTour,
@@ -6,15 +6,15 @@ import {
   updateTour,
   deleteTour,
   checkId,
-  checkBody,
-} from '../controller/tours.controller';
+  checkBody
+} from "../controller/tours.controller";
 
 const tourRouter = Router();
 
-tourRouter.param('id', checkId);
+tourRouter.param("id", checkId);
 
-tourRouter.route('/').get(getAllTours).post(checkBody, createTour);
+tourRouter.route("/").get(getAllTours).post(checkBody, createTour);
 
-tourRouter.route('/:id').get(getTourById).patch(updateTour).delete(deleteTour);
+tourRouter.route("/:id").get(getTourById).patch(updateTour).delete(deleteTour);
 
 export default tourRouter;

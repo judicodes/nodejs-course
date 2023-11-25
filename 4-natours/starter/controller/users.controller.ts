@@ -1,37 +1,37 @@
-import { Request, Response } from 'express';
+import { Request, Response } from "express";
 
-const getAllUsers = (req: Request, res: Response) => {
+const getAllUsers = (_: Request, res: Response) => {
   res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined',
+    status: "error",
+    message: "This route is not yet defined"
   });
 };
 
-const getUserById = (req: Request, res: Response) => {
+const getUserById = (_: Request, res: Response) => {
   res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined',
+    status: "error",
+    message: "This route is not yet defined"
   });
 };
 
-const createUser = (req: Request, res: Response) => {
+const createUser = (_: Request, res: Response) => {
   res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined',
+    status: "error",
+    message: "This route is not yet defined"
   });
 };
 
-const updateUser = (req: Request, res: Response) => {
+const updateUser = (_: Request, res: Response) => {
   res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined',
+    status: "error",
+    message: "This route is not yet defined"
   });
 };
 
-const deleteUser = (req: Request, res: Response) => {
+const deleteUser = (_: Request, res: Response) => {
   res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined',
+    status: "error",
+    message: "This route is not yet defined"
   });
 };
 
