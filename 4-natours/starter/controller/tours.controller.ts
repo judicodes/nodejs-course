@@ -12,6 +12,8 @@ const toursFilePath = path.resolve(
 );
 const tours: TourDto[] = JSON.parse(readFileSync(toursFilePath, 'utf-8'));
 
+// TODO: replace middleware function with yup validators
+
 const checkId = (req: Request, res: Response, next: Function) => {
   const id = +req.params.id;
   const tour = tours.find((el) => el.id === id);
@@ -22,6 +24,26 @@ const checkId = (req: Request, res: Response, next: Function) => {
       message: 'Invalid ID',
     });
   }
+  next();
+};
+
+const checkBody = (req: Request, res: Response, next: Function) => {
+  const { name, price } = req.body;
+
+  if (!name) {
+    return res.status(400).json({
+      status: 'fail',
+      message: 'Missing name',
+    });
+  }
+
+  if (!price) {
+    return res.status(400).json({
+      status: 'fail',
+      message: 'Missing price',
+    });
+  }
+
   next();
 };
 
@@ -99,4 +121,5 @@ export {
   getTourById,
   updateTour,
   checkId,
+  checkBody,
 };
